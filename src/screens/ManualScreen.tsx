@@ -24,7 +24,13 @@ const MANUAL_CONTENT: Record<Lang, ManualSection[]> = {
       body: '紧急联系人：填写紧急情况下需要联系的人员姓名和电话号码，电话请使用国际格式（例如：+86 138 0000 0000）。填写完成后请点击"保存联系人"。\n\n跌倒检测灵敏度：1 至 5 级控制跌倒检测的灵敏程度。1 级仅在严重跌倒时触发，5 级在轻微碰撞时也会触发。建议大多数用户选择 3 级。\n\n测试警报：点击"触发测试警报"可模拟紧急情况，用于验证联系人是否可以接收到通知和来电。您可以在 30 秒倒计时期间点击取消来中止测试。',
     },
     {
-      title: '故障排查',
+      title: '健康风险分析',
+      body: 'ElderGuard 会每 30 秒将生命体征数据上传至后台服务器，服务器通过统计算法对数据进行分析，并在检测到潜在风险时主动弹出提醒。\n\n目前支持以下六类风险检测：\n• 心率上升趋势（持续走高）\n• 心率下降趋势（持续走低）\n• 血氧偏低（近期平均低于 94%）\n• 心率变异性偏低（自律性下降信号）\n• 血压上升趋势（收缩压持续升高）\n• 跌倒频率过高（24 小时内 ≥2 次）\n\n提醒以弹窗形式出现，按严重程度分为低风险（橙色）、中等风险（深橙）、高风险（红色）和高度风险（深红）。确认后点击"我知道了"关闭弹窗。\n\n注意：风险分析功能需要在设置中填写服务器地址，否则数据将不会上传，也不会产生提醒。',
+    },
+    {
+      title: '免责声明',
+      body: 'ElderGuard 的所有健康风险提醒均为纯辅助性质，仅供参考，不构成任何医疗建议、诊断或治疗依据。\n\n本应用基于统计规律进行预测，无法保证预测结果的准确性。漏报（未检测到实际风险）和误报（无实际风险时触发提醒）均属正常情况。\n\n若出现身体不适，请直接联系医护人员或拨打急救电话，不要仅依赖本应用的提醒。本应用及其开发者对因使用或未使用本应用的提醒功能而导致的任何健康事件或损失不承担任何法律或道义责任。',
+    },
       body: '传感器无法连接：当前版本使用模拟数据，无需实际传感器设备。在正式版本中，请确保蓝牙已开启，传感器已充电且在 10 米范围内。\n\n短信未发送：请确认紧急联系人的电话号码格式正确（国际格式）。发送短信需要蜂窝网络连接，仅有 Wi-Fi 时无法发送。\n\n推送通知未显示：请进入设备设置 → 通知 → ElderGuard，确认已允许通知权限。\n\n误报频繁：若频繁收到误报，请在设置中降低跌倒检测灵敏度（建议调至 2 级或 1 级）。生命体征警报的阈值出于安全考虑设置较为保守，如需调整请咨询医护人员。',
     },
   ],
@@ -46,7 +52,13 @@ const MANUAL_CONTENT: Record<Lang, ManualSection[]> = {
       body: 'Emergency Contact: Enter the name and phone number of the person to be contacted in an emergency. Use international format for the phone number (e.g. +1 555 000 1234). Tap Save Contact after entering details.\n\nFall Detection Sensitivity: Levels 1–5 control how sensitive the fall detector is. Level 1 only triggers on severe falls; level 5 triggers on milder impacts. We recommend level 3 for most users.\n\nTest Alert: Tap "Trigger Test Alert" to simulate an emergency. This is useful to verify your contact is reachable and notifications work correctly. You can cancel it during the 30-second countdown.',
     },
     {
-      title: 'Troubleshooting',
+      title: 'Health Risk Analysis',
+      body: 'ElderGuard uploads vital sign data to a backend server every 30 seconds. The server applies statistical algorithms to the readings and proactively shows a popup when a potential risk pattern is detected.\n\nSix risk checks are currently supported:\n• Heart rate rising trend (sustained increase)\n• Heart rate declining trend (sustained decrease)\n• Low SpO2 (recent average below 94%)\n• Low heart rate variability (signal of reduced autonomic function)\n• Rising blood pressure trend (systolic increasing)\n• High fall frequency (≥2 falls within 24 hours)\n\nAlerts appear as a modal popup, colour-coded by severity: Low Risk (amber), Medium Risk (dark orange), High Risk (red), Critical Risk (deep red). Tap Acknowledge to dismiss.\n\nNote: risk analysis requires a server URL to be configured in Settings. Without it, no data is uploaded and no risk alerts will appear.',
+    },
+    {
+      title: 'Disclaimer',
+      body: 'All health risk warnings from ElderGuard are purely advisory and for informational purposes only. They do not constitute medical advice, diagnosis, or treatment recommendations.\n\nThis app uses statistical pattern detection, which cannot guarantee accuracy. Both false negatives (a real risk going undetected) and false positives (an alert firing when nothing is wrong) are normal and expected.\n\nIf you feel unwell, contact a healthcare professional or call emergency services directly — do not rely solely on this app. The app and its creator accept no legal or moral responsibility for any health events or losses arising from the use or non-use of the app\'s alert features.',
+    },
       body: 'Sensors not connecting: The current version uses simulated data — no physical sensor connection is required. In a production build, ensure Bluetooth is enabled and the sensor devices are charged and in range (within 10 metres).\n\nSMS not sent: Ensure the emergency contact phone number is correct and in international format. SMS requires a cellular data connection — Wi-Fi alone is insufficient.\n\nNotifications not appearing: Go to your device Settings → Notifications → ElderGuard and ensure notifications are allowed.\n\nFalse alarms: If you are getting frequent false alarms, reduce the fall detection sensitivity in Settings (try level 2 or 1). For vital sign alerts, the thresholds are set conservatively for safety — contact your care provider before adjusting them.',
     },
   ],

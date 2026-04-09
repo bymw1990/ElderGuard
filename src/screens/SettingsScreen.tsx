@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import { useSettingsStore } from '../store/useSettingsStore';
 import { useEmergencyStore } from '../store/useEmergencyStore';
+import { useRiskStore } from '../store/useRiskStore';
 import SectionHeader from '../components/common/SectionHeader';
 import { useTranslation } from '../i18n/useTranslation';
 
@@ -24,6 +25,26 @@ export default function SettingsScreen() {
 
   const testAlert = () => {
     useEmergencyStore.getState().triggerEmergency('fall', 'Test alert from Settings');
+  };
+
+  const testRiskWarning = () => {
+    const now = Date.now();
+    useRiskStore.getState().addRisks([
+      {
+        id: `hr_decline_${now}`,
+        type: 'hr_decline',
+        level: 'medium',
+        message_zh: '心率持续下降（每次读数 -0.8 bpm），请注意监测。',
+        message_en: 'Heart rate trending downward (-0.8 bpm/reading). Monitor closely.',
+      },
+      {
+        id: `fall_frequency_${now}`,
+        type: 'fall_frequency',
+        level: 'high',
+        message_zh: '过去 24 小时内检测到 3 次跌倒，跌倒风险较高，请注意安全。',
+        message_en: '3 falls detected in the past 24 hours. High fall risk — please take precautions.',
+      },
+    ]);
   };
 
   return (
@@ -128,6 +149,9 @@ export default function SettingsScreen() {
       <TouchableOpacity style={styles.testBtn} onPress={testAlert}>
         <Text style={styles.testBtnText}>{t('trigger_test_alert')}</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={[styles.testBtn, styles.testRiskBtn]} onPress={testRiskWarning}>
+        <Text style={styles.testBtnText}>{t('trigger_test_risk')}</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -198,6 +222,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 14,
     alignItems: 'center',
+  },
+  testRiskBtn: {
+    backgroundColor: '#e07b00',
+    marginTop: 10,
   },
   testBtnText: { color: '#fff', fontWeight: '700', fontSize: 16 },
 });

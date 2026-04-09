@@ -31,6 +31,8 @@ const MANUAL_CONTENT: Record<Lang, ManualSection[]> = {
       title: '免责声明',
       body: 'ElderGuard 的所有健康风险提醒均为纯辅助性质，仅供参考，不构成任何医疗建议、诊断或治疗依据。\n\n本应用基于统计规律进行预测，无法保证预测结果的准确性。漏报（未检测到实际风险）和误报（无实际风险时触发提醒）均属正常情况。\n\n若出现身体不适，请直接联系医护人员或拨打急救电话，不要仅依赖本应用的提醒。本应用及其开发者对因使用或未使用本应用的提醒功能而导致的任何健康事件或损失不承担任何法律或道义责任。',
     },
+    {
+      title: '故障排查',
       body: '传感器无法连接：当前版本使用模拟数据，无需实际传感器设备。在正式版本中，请确保蓝牙已开启，传感器已充电且在 10 米范围内。\n\n短信未发送：请确认紧急联系人的电话号码格式正确（国际格式）。发送短信需要蜂窝网络连接，仅有 Wi-Fi 时无法发送。\n\n推送通知未显示：请进入设备设置 → 通知 → ElderGuard，确认已允许通知权限。\n\n误报频繁：若频繁收到误报，请在设置中降低跌倒检测灵敏度（建议调至 2 级或 1 级）。生命体征警报的阈值出于安全考虑设置较为保守，如需调整请咨询医护人员。',
     },
   ],
@@ -59,6 +61,8 @@ const MANUAL_CONTENT: Record<Lang, ManualSection[]> = {
       title: 'Disclaimer',
       body: 'All health risk warnings from ElderGuard are purely advisory and for informational purposes only. They do not constitute medical advice, diagnosis, or treatment recommendations.\n\nThis app uses statistical pattern detection, which cannot guarantee accuracy. Both false negatives (a real risk going undetected) and false positives (an alert firing when nothing is wrong) are normal and expected.\n\nIf you feel unwell, contact a healthcare professional or call emergency services directly — do not rely solely on this app. The app and its creator accept no legal or moral responsibility for any health events or losses arising from the use or non-use of the app\'s alert features.',
     },
+    {
+      title: 'Troubleshooting',
       body: 'Sensors not connecting: The current version uses simulated data — no physical sensor connection is required. In a production build, ensure Bluetooth is enabled and the sensor devices are charged and in range (within 10 metres).\n\nSMS not sent: Ensure the emergency contact phone number is correct and in international format. SMS requires a cellular data connection — Wi-Fi alone is insufficient.\n\nNotifications not appearing: Go to your device Settings → Notifications → ElderGuard and ensure notifications are allowed.\n\nFalse alarms: If you are getting frequent false alarms, reduce the fall detection sensitivity in Settings (try level 2 or 1). For vital sign alerts, the thresholds are set conservatively for safety — contact your care provider before adjusting them.',
     },
   ],

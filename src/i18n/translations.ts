@@ -83,6 +83,14 @@ const en = {
   sms_body: 'EMERGENCY: {detail}. Location: {url}',
   sms_body_no_location: 'EMERGENCY: {detail}. Location unavailable',
   notification_title: '🚨 Emergency Alert',
+
+  // Risk warnings
+  risk_warning_title: 'Health Risk Alert',
+  risk_level_low: 'Low Risk',
+  risk_level_medium: 'Medium Risk',
+  risk_level_high: 'High Risk',
+  risk_level_critical: 'Critical Risk',
+  acknowledge_all: 'Acknowledge',
 } as const;
 
 const zh = {
@@ -168,6 +176,14 @@ const zh = {
   sms_body: '紧急情况：{detail}。位置：{url}',
   sms_body_no_location: '紧急情况：{detail}。位置不可用',
   notification_title: '🚨 紧急警报',
+
+  // Risk warnings
+  risk_warning_title: '健康风险提醒',
+  risk_level_low: '低风险',
+  risk_level_medium: '中等风险',
+  risk_level_high: '高风险',
+  risk_level_critical: '高度风险',
+  acknowledge_all: '我知道了',
 } satisfies typeof en;
 
 export type TranslationKeys = keyof typeof en;

@@ -5,6 +5,7 @@ import * as KeepAwake from 'expo-keep-awake';
 import { Audio } from 'expo-av';
 import { useSensorFeed } from './src/hooks/useSensorFeed';
 import { useEmergencyFlow } from './src/hooks/useEmergencyFlow';
+import { useDataSync } from './src/hooks/useDataSync';
 import { NotificationService } from './src/services/NotificationService';
 import { LocationService } from './src/services/LocationService';
 import RootNavigator from './src/navigation/RootNavigator';
@@ -12,6 +13,7 @@ import RootNavigator from './src/navigation/RootNavigator';
 function AppInner() {
   useSensorFeed();
   useEmergencyFlow();
+  useDataSync();
   return <RootNavigator />;
 }
 

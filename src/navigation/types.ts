@@ -5,6 +5,7 @@ import type { CompositeNavigationProp } from '@react-navigation/native';
 export type RootStackParamList = {
   MainTabs: undefined;
   Emergency: undefined;
+  RiskWarning: undefined;
 };
 
 export type TabParamList = {
